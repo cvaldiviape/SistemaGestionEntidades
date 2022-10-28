@@ -1,0 +1,14 @@
+<div [ngClass]="{'menu': true,'menu-open': openSidebar}">
+  <!-- ITEMS -->
+  <ul *ngFor="let mainElement of items;" [ngClass]="{'list': true}">
+    <li [routerLinkActive]="['item-active']">
+      <a [ngClass]="{'item': true}" [routerLink]="[mainElement.path]">
+        <div [ngClass]="['img']"><mat-icon [ngClass]="['icon']">{{mainElement.iconPrimary}}</mat-icon></div>
+        <div [ngClass]="{'title': true,'hidden-title-custom': (!openSidebar && !isMobileSize)}">
+          <div>{{mainElement.title}}</div>
+          <mat-icon [ngClass]="['icon']">{{mainElement.iconSecondary}}</mat-icon>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>

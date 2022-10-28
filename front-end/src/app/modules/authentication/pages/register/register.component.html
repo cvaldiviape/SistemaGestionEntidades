@@ -1,0 +1,90 @@
+<h1 [ngClass]="['title']">{{title}}</h1>
+<h1 [ngClass]="['subtitle','md:subtitle']">{{subtitle}}</h1>
+
+<form
+  [formGroup]="formReactive"
+  (ngSubmit)="onSubmit(formReactive.value)"
+>
+
+  <mat-form-field appearance="legacy" [ngClass]="['input']">
+    <mat-label>Usuario</mat-label>
+    <input 
+      matInput placeholder="Ingrese usuario" 
+      id="username"
+      formControlName="username"
+      maxlength="50" 
+    />
+    <mat-icon matSuffix>assignment_ind</mat-icon>
+    <mat-error *ngIf="formReactive.controls['username'].hasError('required') && formReactive.controls['username'].touched">
+      El 'usuario' es requerido.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="legacy" [ngClass]="['input']">
+    <mat-label>Contraseña</mat-label>
+    <input 
+      matInput placeholder="Ingrese contraseña" 
+      [type]="hide ? 'password' : 'text'" 
+      id="password"
+      formControlName="password"
+      maxlength="50" 
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+    <mat-error *ngIf="formReactive.controls['password'].hasError('required') && formReactive.controls['password'].touched">
+      La 'contraseña' es requerida.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="legacy" [ngClass]="['input']">
+    <mat-label>Confirmar contraseña</mat-label>
+    <input 
+      matInput placeholder="Confirmar contraseña" 
+      [type]="hide ? 'password' : 'text'" 
+      id="repeatPassword"
+      formControlName="repeatPassword"
+      maxlength="50" 
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+    <mat-error *ngIf="formReactive.controls['repeatPassword'].hasError('required') && formReactive.controls['repeatPassword'].touched">
+      Confirmación de contraseña es requerida.
+    </mat-error>
+  </mat-form-field>
+
+  <div [ngClass]="['mb']">
+    <app-btn-custom-a 
+      [text]="'Registrar'" 
+      [type]="'submit'"
+      [loading]="loading"
+      [disabled]="!formReactive.valid"
+    >
+    </app-btn-custom-a>
+  </div>
+  
+  <div>
+    <app-btn-custom-b 
+      [text]="'Volver'" 
+      [type]="'button'"
+      (click)="goBack()"
+    >
+    </app-btn-custom-b>
+  </div>
+  
+</form>

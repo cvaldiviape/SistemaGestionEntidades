@@ -1,0 +1,28 @@
+<div [ngClass]="['layout']">
+  <!-- ------------------------------------------------------------ SIDEBAR ------------------------------------------------------------ -->
+  <app-sidebar 
+    [isMobileSize]="isMobileSize"
+    [openSidebar]="openSidebar"
+    [appName]="appName"
+    [username]="username"
+    [items]="items">
+  </app-sidebar>
+  <!-- ------------------------------------------------------------ CONTENT ------------------------------------------------------------ -->
+  <div [ngClass]="{
+    'content': true,
+    'xs:content-closed': (!openSidebar && isMobileSize),
+    'xs:content-open': (openSidebar && isMobileSize),
+    'md:content-closed': (!openSidebar && !isMobileSize),
+    'md:content-open': (openSidebar && !isMobileSize)
+  }">
+    <!-- ------------------------------------------------------------ NAVBAR ------------------------------------------------------------ -->
+    <app-navbar [openSidebar]="openSidebar" [isMobileSize]="isMobileSize" (openSidebarOutPut)="setOpenSidebar($event)"></app-navbar>
+    
+    <!-- ------------------------------------------------------------ MAIN ------------------------------------------------------------ -->
+    <div [ngClass]="['main']" (click)="setClosedSidebarOnlyMobile()">
+      <router-outlet></router-outlet>
+    </div>
+  
+  </div>
+
+</div>

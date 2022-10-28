@@ -1,0 +1,16 @@
+<div [ngClass]="{'navbar':true,'position-over': openSidebar && isMobileSize}">
+  <button mat-mini-fab color="secondary" (click)="getOpenSidebar()">
+    <div *ngIf="openSidebar; else iconClosed">
+      <mat-icon>menu</mat-icon>
+    </div>
+    <ng-template #iconClosed>
+      <mat-icon>more_vert</mat-icon>
+    </ng-template>
+  </button>
+  <div [ngClass]="['navbar-button']" (click)="getClosedSidebar()">
+    navbar-button
+  </div>
+  <button mat-mini-fab color="warn" (click)="closeSession()">
+      <mat-icon>logout</mat-icon>
+  </button>
+</div>

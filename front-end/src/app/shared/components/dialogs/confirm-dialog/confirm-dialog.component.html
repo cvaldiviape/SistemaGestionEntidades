@@ -1,0 +1,22 @@
+<div [ngClass]="['dialog']">
+  <div [ngClass]="['title','col-12']">
+    {{data.title}}
+  </div>
+
+  <div  [ngClass]="['message','col-12']">
+    {{data.message}}
+  </div>
+  
+  
+  <div [ngClass]="['buttons','col-12']">
+    <div></div>
+    <app-btn-custom-b [ngClass]="['p','md:p','col-5']" [text]="data.cancelText" [mat-dialog-close]="false"></app-btn-custom-b>
+    <app-btn-custom-a [ngClass]="['p','md:p','col-5']" [text]="data.confirmText" [mat-dialog-close]="true"></app-btn-custom-a>
+  </div>
+  
+</div>
+
+
+<!-- mat-dialog-content -->
+<!-- mat-dialog-actions  -->
+

@@ -1,0 +1,57 @@
+<div [ngClass]="['card']">
+  <p [ngClass]="['title']">{{title}}</p>
+  <!-- ------------------------------------------------ FORM ------------------------------------------------ -->
+  <div [ngClass]="['row', 'col-12', 'form']">
+    <mat-form-field appearance="legacy" [ngClass]="['col-12','md:col-9','input-filter', 'md:input-filter']" >
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
+    </mat-form-field>
+    <div [ngClass]="['col-12','md:col-3','button-new', 'md:button-new']">
+      <app-btn-custom-a 
+        [text]="'Nuevo'" 
+        [type]="'button'"
+        (click)="goPageCreate()"
+      >
+      </app-btn-custom-a>
+    </div>
+  </div>
+  <!-- ------------------------------------------------ TABLE ------------------------------------------------ -->
+  <div [ngClass]="['mat-elevation-z8','container','lg:container','xl:container']" tabindex="0">
+    <table [ngClass]="['table']" mat-table [dataSource]="dataSource">
+      <!-- Colum 1 -->
+      <ng-container matColumnDef="id">                    
+        <th *matHeaderCellDef [ngClass]="['column','header-id','lg:header-id']">ID</th>
+        <td *matCellDef="let element" [ngClass]="['column','content-id','lg:content-id']">{{element.id}}</td>
+      </ng-container>
+      <!-- Colum 3 -->
+      <ng-container matColumnDef="name">
+        <th *matHeaderCellDef [ngClass]="['column','header-name','lg:header-name']">Nombre</th>
+        <td *matCellDef="let element" [ngClass]="['column','content-name','lg:content-name']">{{element.name}}</td>
+      </ng-container>
+      <!-- Star Column -->
+      <ng-container matColumnDef="actions">
+        <th *matHeaderCellDef [ngClass]="['column','header-actions','lg:header-actions']" aria-label="row actions">Acciones</th>
+        <td *matCellDef="let element" [ngClass]="['column','content-actions','lg:content-actions']">
+          <div [ngClass]="['menu-actions']">
+            <button mat-icon-button color="success" (click)="goPageEdit(element.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="openDialogDelete(element.id, element.name)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+      
+      <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </table>
+  </div>
+
+  <mat-paginator 
+    [ngClass]="['paginator']" 
+    [pageSizeOptions]="[5, 10, 25, 50]"
+    showFirstLastButtons
+  ></mat-paginator>
+ 
+</div>

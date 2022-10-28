@@ -1,0 +1,146 @@
+<p [ngClass]="['title']">{{title}}</p>
+<form [formGroup]="formReactive" (ngSubmit)="onSubmit(formReactive.value)" [ngClass]="['row','col-12']">
+
+  <div [ngClass]="['md:mb','row','col-12']">
+    <mat-form-field appearance="legacy" [ngClass]="['mb','field','col-12','md:col-3']">
+      <mat-label>N° de documento</mat-label>
+      <input
+        matInput
+        placeholder="Ingrese N° de documento"
+        id="nroDocument"
+        formControlName="nroDocument"
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, 8);"
+        maxlength="8"
+      />
+      <mat-icon matSuffix>badge</mat-icon>
+      <mat-error *ngIf="formReactive.controls['nroDocument'].hasError('required') && formReactive.controls['nroDocument'].touched">
+        El campo 'N° de documento' es requerido.
+      </mat-error>
+      <mat-error *ngIf="formReactive.controls['nroDocument'].hasError('pattern') && formReactive.controls['nroDocument'].touched">
+        El campo 'N° de documento' debe contener 8 números.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" [ngClass]="['mb','field','col-12','md:col-3']">
+      <mat-label>Razón social</mat-label>
+      <input
+        matInput
+        placeholder="Ingrese razón social"
+        id="companyName"
+        formControlName="companyName"
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, 20);"
+        maxlength="20"
+      />
+      <mat-icon matSuffix>business</mat-icon>
+      <mat-error *ngIf="formReactive.controls['companyName'].hasError('required') && formReactive.controls['companyName'].touched">
+        El campo 'razón social' es requerido.
+      </mat-error>
+      <mat-error *ngIf="formReactive.controls['companyName'].hasError('pattern') && formReactive.controls['companyName'].touched">
+        El campo 'razón social' solo admite letras y no espacios.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" [ngClass]="['mb','field','col-12','md:col-3']">
+      <mat-label>Nombre comercial</mat-label>
+      <input
+        matInput
+        placeholder="Ingrese nombre comercial"
+        id="commercialName"
+        formControlName="commercialName"
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, 20);"
+        maxlength="20"
+      />
+      <mat-icon matSuffix>stacked_bar_chart</mat-icon>
+      <mat-error *ngIf="formReactive.controls['commercialName'].hasError('required') && formReactive.controls['commercialName'].touched">
+        El campo 'nombre comercial' es requerido.
+      </mat-error>
+      <mat-error *ngIf="formReactive.controls['commercialName'].hasError('pattern') && formReactive.controls['commercialName'].touched">
+        El campo 'nombre comercial' solo admite letras y no espacios..
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" [ngClass]="['mb','field','col-12','md:col-3']">
+      <mat-label>Teléfono</mat-label>
+      <input
+        matInput
+        placeholder="Ingrese teléfono"
+        id="phone"
+        formControlName="phone"
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, 9);"
+        maxlength="9"
+      />
+      <mat-icon matSuffix>phone_paused</mat-icon>
+      <mat-error *ngIf="formReactive.controls['phone'].hasError('required') && formReactive.controls['phone'].touched">
+        El campo 'teléfono' es requerido.
+      </mat-error>
+      <mat-error *ngIf="formReactive.controls['phone'].hasError('pattern') && formReactive.controls['phone'].touched">
+        El campo 'teléfono' debe contener de 7 a 9 números
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div [ngClass]="['mbm','row', 'col-12']">
+    <mat-form-field appearance="legacy" [ngClass]="['mb','field','col-12','md:col-6']">
+      <mat-label>Direccíon</mat-label>
+      <input
+        matInput
+        placeholder="Ingrese dirección"
+        id="address"
+        formControlName="address"
+        oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, 9);"
+        maxlength="50"
+      />
+      <mat-icon matSuffix>location_on</mat-icon>
+      <mat-error *ngIf="formReactive.controls['address'].hasError('required') && formReactive.controls['address'].touched">
+        El campo 'dirección' es requerido.
+      </mat-error>
+      <mat-error *ngIf="formReactive.controls['address'].hasError('pattern') && formReactive.controls['address'].touched">
+        El campo 'dirección' no admite caracteres extraños o espacios.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" [ngClass]="['mb','field','col-12','md:col-3']">
+      <mat-label>Tipo de documento</mat-label>
+      <mat-select formControlName="typeDocumentId" required>
+        <mat-option *ngFor="let item of typeDocuments" [value]="item.id">
+          {{item.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="formReactive.controls['typeDocumentId'].hasError('required') && formReactive.controls['typeDocumentId'].touched">
+        El campo 'tipo de documento' es requerido.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="legacy" [ngClass]="['mb','field','col-12','md:col-3']">
+      <mat-label>Tipo de contribuyente</mat-label>
+      <mat-select formControlName="typeContributorId" required>
+        <mat-option *ngFor="let item of typeContributors" [value]="item.id">
+          {{item.name}}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="formReactive.controls['typeContributorId'].hasError('required') && formReactive.controls['typeContributorId'].touched">
+        El campo 'tipo de contribuyente' es requerido.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div [ngClass]="['lg:buttons','row','col-12']">
+    <div [ngClass]="['mb','md:btn-register','col-12','md:col-6','lg:col-3']">
+      <app-btn-custom-a
+        [text]="textBtnSubmit"
+        [type]="'submit'"
+        [loading]="loading"
+        [disabled]="!formReactive.valid"
+      >
+      </app-btn-custom-a>
+    </div>
+    <div [ngClass]="['col-12','md:btn-back','md:col-6','lg:col-3']">
+      <app-btn-custom-b 
+        [text]="'Volver'" 
+        [type]="'button'" 
+        (click)="goBack()">
+      </app-btn-custom-b>
+    </div>
+  </div>
+ 
+</form>

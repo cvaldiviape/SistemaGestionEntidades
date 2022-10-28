@@ -1,0 +1,34 @@
+@font-face{
+  font-family: 'Hansip';
+  src: url('../font/hansip/Hansip.ttf')
+}
+
+@font-face{
+  font-family: 'Fighting';
+  src: url('../font/fighting-spirit2/Fighting_Spirit_2.otf')
+}
+
+@font-face{
+  font-family: 'Manga';
+  src: url('../font/manga/Manga.otf')
+}
+
+@font-face{
+  font-family: 'Mangat';
+  src: url('../font/mangat/mangat.ttf')
+}
+
+@font-face{
+  font-family: 'Taryo';
+  src: url('../font/tayro/TARYO.otf')
+}
+
+@font-face{
+  font-family: 'Roboto';
+  src: url('../font/roboto/Roboto-Regular.ttf')
+}
+
+@font-face{
+  font-family: 'Open Sans';
+  src: url('../font/open-sans/OpenSans-Regular.ttf')
+}

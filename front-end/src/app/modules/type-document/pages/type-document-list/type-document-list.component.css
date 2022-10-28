@@ -1,0 +1,169 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow-y: auto;
+}
+
+.title {
+  font-family: 'Open Sans';
+  font-size: 1.4rem;
+  font-weight: 800;
+  padding-bottom: 0.7rem;
+  text-transform: uppercase;
+}
+/* ------------------------------------------------ FORM ------------------------------------------------ */
+.form{
+  margin-bottom: 0.6rem;
+}
+
+.input-filter {
+  margin-bottom: -0.5rem;
+  padding-right: 0;
+}
+
+@media screen and (min-width: 48em) {
+  .md\:input-filter {
+    padding-right: 0.2rem;
+  }
+}
+
+.button-new {
+  padding-top: 0;
+  padding-left: 0;
+}
+
+@media screen and (min-width: 48em) {
+  .md\:button-new {
+    padding-top: 0.4rem;
+    padding-left: 0.2rem;
+  }
+}
+
+/* ------------------------------------------------ TABLE ------------------------------------------------ */
+.table {
+  width: 100%;
+}
+
+.container {
+  flex-grow: 1;
+  width: 100%;
+  /* max-width: 100%; */
+  overflow: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.paginator {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+@media screen and (min-width: 62em) {
+  .lg\:container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .xl\:container {
+    width: 100%;
+  }
+}
+
+.table {
+  width: 56.25rem;
+}
+
+@media screen and (min-width: 62em) {
+  .lg\:table {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 75em) {
+  .xl\:table {
+    width: 100%;
+  }
+}
+
+.column {
+  border-left: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  background-color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+} 
+
+.header-id {
+  color: #909090;
+  width: 5%;
+}
+
+.header-code {
+  color: #909090;
+  width: 20%;
+}
+
+.header-name {
+  color: #909090;
+  width: 20%;
+}
+
+.header-description {
+  color: #909090;
+  width: 45%;
+}
+
+.header-actions {
+  color: #909090;
+  width: 10%;
+}
+
+.content-id {
+  padding: 0.2rem 0.5rem;
+  width: 5%;
+  height: 1.5rem;
+}
+
+.content-code {
+  padding: 0.2rem 0.5rem;
+  width: 20%;
+  height: 1.5rem;
+} 
+
+.content-name {
+  padding: 0.2rem 0.5rem;
+  width: 20%;
+  height: 1.5rem;
+} 
+
+.content-description {
+  padding: 0.2rem 0.5rem;
+  width: 45%;
+  height: 1.5rem;
+}
+
+.content-actions {
+  padding: 0.2rem 0.5rem;
+  width: 10%;
+}
+
+.paginator {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.menu-actions {
+  display: flex;
+  flex-direction: row;
+}
+
+.mat-success {
+  color: #f00000;
+}
+
+.mat-warn {
+  color: #000000;
+}

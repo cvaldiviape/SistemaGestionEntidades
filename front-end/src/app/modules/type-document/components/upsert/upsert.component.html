@@ -1,0 +1,71 @@
+<p [ngClass]="['title']">{{title}}</p>
+<form [formGroup]="formReactive" (ngSubmit)="onSubmit(formReactive.value)" [ngClass]="['row','col-12']">
+  <mat-form-field appearance="legacy" [ngClass]="['mb','md:input-code','col-12','md:col-6']">
+    <mat-label>Código</mat-label>
+    <input
+      matInput
+      placeholder="Ingrese código"
+      id="code"
+      formControlName="code"
+      oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, 20);"
+      maxlength="20"
+    />
+    <mat-icon matSuffix>credit_card</mat-icon>
+    <mat-error *ngIf="formReactive.controls['code'].hasError('required') && formReactive.controls['code'].touched">
+      El campo 'código' es requerido.
+    </mat-error>
+    <mat-error *ngIf="formReactive.controls['code'].hasError('pattern') && formReactive.controls['code'].touched">
+      El campo 'código' solo admite letras o números, ejm: '001EP'.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="legacy" [ngClass]="['mb','md:input-name','col-12','md:col-6']">
+    <mat-label>Nombre</mat-label>
+    <input
+      matInput
+      placeholder="Ingrese nombre"
+      id="name"
+      formControlName="name"
+      maxlength="20"
+    />
+    <mat-icon matSuffix>assignment_ind</mat-icon>
+    <mat-error *ngIf="formReactive.controls['name'].hasError('required') && formReactive.controls['name'].touched">
+      El campo 'nombre' es requerido.
+    </mat-error>
+    <mat-error *ngIf="formReactive.controls['name'].hasError('pattern') && formReactive.controls['name'].touched">
+      El campo 'nombre' solo admite letras, ejm: 'Michael Salas Torres'.
+    </mat-error>
+  </mat-form-field>
+
+  <div [ngClass]="['mb','row','col-12']">
+    <app-textarea
+      [ngClass]="['col-12']"
+      [id]="'description'"
+      [control]="$any(formReactive.get('description'))"
+      [placeholder]="'Descripción *'"
+      [type]="'text'"
+      [rows]="11"
+      [messageErrorPattern]="'El campo descripción no admite caracteres extraños.'">
+    </app-textarea>
+  </div>
+
+  <div [ngClass]="['lg:buttons','row','col-12']">
+    <div [ngClass]="['mb','md:btn-register','col-12','md:col-6','lg:col-3']">
+      <app-btn-custom-a
+        [text]="textBtnSubmit"
+        [type]="'submit'"
+        [loading]="loading"
+        [disabled]="!formReactive.valid"
+      >
+      </app-btn-custom-a>
+    </div>
+    <div [ngClass]="['col-12','md:btn-back','md:col-6','lg:col-3']">
+      <app-btn-custom-b 
+        [text]="'Volver'" 
+        [type]="'button'" 
+        (click)="goBack()">
+      </app-btn-custom-b>
+    </div>
+  </div>
+ 
+</form>

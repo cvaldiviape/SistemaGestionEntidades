@@ -1,0 +1,34 @@
+<div [ngClass]="{
+  'sidebar': true,
+  'xs:sidebar-closed' : (!openSidebar && isMobileSize),
+  'xs:sidebar-open'   : (openSidebar && isMobileSize),
+  'md:sidebar-closed' : (!openSidebar && !isMobileSize),
+  'md:sidebar-open'   : (openSidebar && !isMobileSize)
+}" >
+  <!-- -------------------------------------------------------- LOGO and APP NAME -------------------------------------------------------- -->
+  <div [ngClass]="['logo']">
+    <div [ngClass]="['img']">
+      <img  [ngClass]="['icon']" src='./assets/img/companyIcon.png'>
+      <!-- <mat-icon  [ngClass]="['icon']" aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon> -->
+    </div>
+    <div [ngClass]="{'title': true,'hidden-text': (!openSidebar && !isMobileSize)}">
+      {{appName}} 
+    </div>
+  </div>
+  <!-- ------------------------------------------------------------ USERNAME ------------------------------------------------------------ -->
+  <div [ngClass]="['profile']">
+    <div [ngClass]="['img']">
+      <img  [ngClass]="['icon']" src='./assets/img/user.jpg'>
+    </div>
+    <div [ngClass]="{'title': true,'hidden-text': (!openSidebar && !isMobileSize)}">
+     {{username}}
+    </div>
+  </div>
+  <!-- ------------------------------------------------------------ MENU ------------------------------------------------------------ -->
+  <app-menu 
+    [items]="items"
+    [openSidebar]="openSidebar" 
+    [isMobileSize]="isMobileSize">
+  </app-menu>
+
+</div>

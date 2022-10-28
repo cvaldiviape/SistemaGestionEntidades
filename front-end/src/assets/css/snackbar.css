@@ -1,0 +1,14 @@
+.snackbar-info {
+  background: #343235;
+  color     : #FEB92D;
+}
+
+.snackbar-warning {
+  background: #f00000;
+  color     : #343235;
+}
+
+.snackbar-error{
+  background: #343235;
+  color     : #fff;
+}

@@ -1,0 +1,25 @@
+<mat-form-field appearance="legacy" [ngClass]="['col-12']">
+  <mat-label>{{placeholder}}</mat-label>
+  <textarea 
+    matInput
+    [id]="id"
+    [formControl]="control"
+    [type]="type"
+    [required]="required"
+    [readonly]="readonly"
+    [rows]="rows"
+    >
+  </textarea>
+  <mat-error *ngIf="control.hasError('required') && control.touched">
+		{{messageErrorRequired}}
+	</mat-error>
+  <mat-error *ngIf="control.hasError('pattern') && control.touched">
+		{{messageErrorPattern}}
+	</mat-error>
+</mat-form-field>
+
+<!-- [rows]="rows"  -->
+<!-- 
+cdkTextareaAutosize
+    cdkAutosizeMinRows="14"
+    cdkAutosizeMaxRows="14" -->

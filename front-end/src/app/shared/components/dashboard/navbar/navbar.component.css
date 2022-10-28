@@ -1,0 +1,20 @@
+.navbar {
+  display: flex;
+  height: 4.5rem;
+  padding: 0rem 0.4375rem;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FEB92D;
+  background-position: 50% 40%;
+}
+
+.navbar-button{
+  width: 100%;
+  height: 100%;
+  color: #FEB92D;
+}
+
+.btn-opensidebar {
+  background-color: #fff;
+  color: #f00000;;
+}

@@ -1,0 +1,34 @@
+<mat-form-field [ngClass]="['col-12']" appearance="legacy">
+	<mat-chip-list #chipList>	<!-- [selectable]="selectable" -->
+		<mat-chip
+			*ngFor="let x of listItems"
+			[removable]="removable"
+			(removed)="remove(x)">
+			{{x}}
+			<mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+		</mat-chip>
+		<!-- [matChipInputAddOnBlur]="addOnBlur"  -->
+		<input
+			#valueInput
+			[id]="id"
+			[placeholder]="placeholder"
+			[type]="type"
+			[required]="required"
+			[readonly]="readonly"
+			oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+			[maxlength]="maxlength"
+			(blur)="verifyFieldRequired()"
+			[formControl]="control"
+			[matAutocomplete]="auto"
+			[matChipInputFor]="chipList"
+			[matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+			(matChipInputTokenEnd)="add($event)">
+	</mat-chip-list>
+	<mat-error *ngIf="chipList.errorState">{{messageError}}</mat-error>
+	<mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+    <mat-option *ngFor="let y of filteredItems | async" [value]="y">
+      {{y}}
+    </mat-option>
+  </mat-autocomplete>
+
+</mat-form-field>
